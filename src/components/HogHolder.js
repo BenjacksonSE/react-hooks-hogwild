@@ -1,33 +1,25 @@
-import React, {useState} from "react";
+import React from "react";
+import HogTile from "./HogTile";
 
-function HogTile ({name, specialty, greased, weight, image, medal }) {
-    const [extraInfo, showExtraInfo] = useState("False")
-
-
-    function handleExtraInfo () {
-        showExtraInfo(!extraInfo)
-    }
-
-    if (!extraInfo) {
+function HogHolder ({ hogs }) {
+    const renderHogs = hogs.map((hog) => {
         return (
-            <div className="ui eight wide column pigTile" onClick={handleExtraInfo}>
-                <ul className="infoText">
-                    <li>Specialty: {specialty}</li>
-                    <li>Weight: {weight}</li>
-                    <li>Greased: {greased ? "Yes" : "No"}</li>
-                    <li>Highest Medal Achieved: <span className="achievementText">{medal}</span></li>
-                </ul>
-            </div>
-        )}
+          <HogTile 
+            key={hog.name} 
+            name={hog.name} 
+            specialty={hog.specialty}
+            greased={hog.greased}
+            medal={hog["highest medal achieved"]}
+            weight={hog.weight}
+            image={hog.image}
+          />
+        );
+    })
     return (
-      <div
-        className="ui eight wide column pigTile hoggyText" onClick={handleExtraInfo}>
-        Name: {name}
-        <img src={image} width="100%" />
-      </div>
-    );
-
-    
-
-
+        <div classname="ui grid container">
+            {renderHogs}
+        </div>
+    )
 }
+
+export default HogHolder;

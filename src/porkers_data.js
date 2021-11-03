@@ -90,7 +90,7 @@ const hogs = [
       "https://raw.githubusercontent.com/learn-co-curriculum/react-hooks-hogwild/master/public/images/galaxy_note.jpg",
   },
   {
-    name: "Leggo My Eggo",
+    name: "Leggo My MOTHER FUCKING Eggo",
     specialty: "Babysitting",
     greased: true,
     weight: 3.3,
