@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 function HogTile({ name, specialty, greased, weight, image, medal }) {
   const [extraInfo, showExtraInfo] = useState("False");
+  const [hideHog, hideTheHog] = useState("False")
 
   function handleExtraInfo() {
     showExtraInfo(!extraInfo);
@@ -22,13 +23,20 @@ function HogTile({ name, specialty, greased, weight, image, medal }) {
       </div>
     );
   }
+
+  function handleHideHog() {
+      hideTheHog(!hideHog)
+  }
+
+  if (!hideHog) {
+      return <div></div>
+  }
   return (
-    <div
-      className="ui eight wide column pigTile hoggyText"
-      onClick={handleExtraInfo}
-    >
+    <div className="ui eight wide column pigTile hoggyText">
       Name: {name}
-      <img src={image} width="100%" />
+      <br></br>
+      <button classname="hideHog" onClick={handleHideHog}>Hide</button>
+      <img src={image} width="100%" onClick={handleExtraInfo} />
     </div>
   );
 }
